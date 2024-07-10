@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:07:17 by sepun             #+#    #+#             */
-/*   Updated: 2024/07/09 20:34:08 by sepun            ###   ########.fr       */
+/*   Updated: 2024/07/10 12:53:40 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	**ft_split(char const *s, char c)
 	}
 	return (strs);
 }
-
+/*
 int main(void) {
     int i = 0;
     char *input_str = "hola mundo como estas ";
@@ -95,3 +95,4 @@ int main(void) {
     }
     free(result);
 }
+*/ 
