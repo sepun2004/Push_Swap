@@ -12,14 +12,16 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ) -L libft -lft -o push_swap -no-pie
-	@make -s -C libft
+	@make -C libft
+	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
 
 clean: 
-	   $(RM) $(OBJ)
+	$(RM) $(OBJ)
+	@make  clean -s -C libft
 
 fclean: clean
-	   rm -f $(NAME)
+	rm -f $(NAME)
+	@make fclean -s -C libft
 
 re: fclean all
 
