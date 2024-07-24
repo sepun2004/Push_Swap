@@ -17,11 +17,11 @@ $(NAME): $(OBJ)
 
 clean: 
 	$(RM) $(OBJ)
-	@make  clean -s -C libft
+	@make  clean -C libft
 
 fclean: clean
 	rm -f $(NAME)
-	@make fclean -s -C libft
+	@make fclean  -C libft
 
 re: fclean all
 

@@ -15,4 +15,6 @@
 
 # include "libft/libft.h"
 
+char  *check_error(char *str);
+int main(int argc, char **argv);
 #endif

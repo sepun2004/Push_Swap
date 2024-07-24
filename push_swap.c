@@ -10,215 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <string.h>
-# include <stdint.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+# include "push_swap.h"
 
 
-
-
-size_t	ft_strlen(const char *str)
+int check_error(char **argv)
 {
-	int	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	if (ft_check_chars(argv) == -1)
+		return(NULL);
+	if (ft_check_string(argv) == -1)
+		return(NULL);
+	if (ft_check_limits(argv) == -1)
+		return(NULL);	
 }
 
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	i;
-	size_t	j;
-	char	*str;
-
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-			str[j++] = s[i];
-		}
-		i++;
-	}
-	str[j] = 0;
-	return (str);
-}
-
-
-
-void	ft_bzero(void *s, size_t n)
-{
-	size_t			i;
-	unsigned char	*s2;
-
-	i = 0;
-	s2 = (unsigned char *)s;
-	while (i < n)
-	{
-		s2[i] = 0;
-		i++;
-	}
-}
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	if (count == SIZE_MAX && size == SIZE_MAX)
-		return (NULL);
-	ptr = malloc(count * size);
-	if (ptr == NULL)
-		return (ptr);
-	ft_bzero(ptr, size * count);
-	return (ptr);
-}
-
-static int	ft_count_word(char const *s, char c)
-{
-	int	i;
-	int	word;
-
-	i = 0;
-	word = 0;
-	while (s && s[i])
-	{
-		if (s[i] != c)
-		{
-			word++;
-			while (s[i] != c && s[i])
-				i++;
-		}
-		else
-			i++;
-	}
-	return (word);
-}
-
-static int	ft_size_word(char const *s, char c, int i)
-{
-	int	size;
-
-	size = 0;
-	while (s[i] != c && s[i])
-	{
-		size++;
-		i++;
-	}
-	return (size);
-}
-
-static char	**ft_free(char **strs, int j)
-{
-	while (j-- > 0)
-		free(strs[j]);
-	free(strs);
-	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	int		word;
-	char	**strs;
-	int		size;
-	int		j;
-
-	i = 0;
-	j = -1;
-	word = ft_count_word(s, c);
-	strs = ft_calloc(word + 1, sizeof(char *));
-	if (!strs)
-		return (NULL);
-	while (++j < word)
-	{
-		while (s[i] == c)
-			i++;
-		size = ft_size_word(s, c, i);
-		strs[j] = ft_substr(s, i, size);
-		if (!strs[j])
-			return (ft_free(strs, j));
-		i += size;
-	}
-	return (strs);
-}
-
-int	ft_atoi(const char *str)
-{
-	unsigned int	num;
-	int				i;
-	int				np;
-
-	np = 1;
-	i = 0;
-	num = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\f'
-		|| str[i] == '\r' || str[i] == '\n' || str[i] == '\v')
-		i++;
-	if (str[i] == '+' || str[i] == '-'){
-		// printf("entro\n");
-		if (str[i++] == '-'){
-			np = -1;
-			// printf("entro en str[i++]\n");
-		}
-	}
-	// if (str[i] == '-' && str[i++] == '-'){
-	// 	printf("Error");
-	// 	return 0;
-	// }
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10 + (str[i] - '0');
-		i++;
-	}
-	return ((int)(np * num));
-}
-
-int	ft_isalpha(int x)
-{
-	while ((x >= 'A' && x <= 'Z') || (x >= 'a' && x <= 'z'))
-		return (1);
-	return (0);
-}
-
-char  *check_error(char *str)
-{
-	int i;
+// char  *check_error(char *str)
+// {
+// 	int i;
 	
-	i = 0;
-	// printf("entro en check_error\n");
-	while (str[i] != '\0')
-	{
-		// printf("el caracter str[i] es :%c\n", str[i]);
-		if (str[i] == '-' && str[i + 1] == '-' || (ft_isalpha(str[i])) == 1)
-		{
-			printf("entro en el if --");
-			return NULL;
-		}
-		i++;
-	}
-	return (str);
-}
-
-int good_boy(char *str)
-{
-
-}
+// 	i = 0;
+// 	// printf("entro en check_error\n");
+// 	while (str[i] != '\0')
+// 	{
+// 		// printf("el caracter str[i] es :%c\n", str[i]);
+// 		if (str[i] == '-' && str[i + 1] == '-' || (ft_isalpha(str[i])) == 1)
+// 		{
+// 			printf("entro en el if --");
+// 			return NULL;
+// 		}
+// 		i++;
+// 	}
+// 	return (str);
+// }
 
 
 int main(int argc, char **argv)
