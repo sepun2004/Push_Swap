@@ -5,7 +5,8 @@ CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
 
-SRC = push_swap.c
+SRC = push_swap.c\
+	  ft_checkquers.c\
 
 OBJ = $(SRC:.c=.o)
 

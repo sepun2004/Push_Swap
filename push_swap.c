@@ -13,95 +13,67 @@
 # include "push_swap.h"
 
 
-int check_error(char **argv)
+char **check_error(char **argv)
 {
-	if (ft_check_chars(argv) == -1)
-		return(NULL);
-	if (ft_check_string(argv) == -1)
-		return(NULL);
-	if (ft_check_limits(argv) == -1)
-		return(NULL);	
-}
 
-// char  *check_error(char *str)
-// {
-// 	int i;
+	printf("ingreso a check_error\n");
+	if (ft_check_chars(argv) == -1)
+	{
+		printf("tiro -1 en ft_check_chars\n");
+		return(NULL);
+	}
+	if (ft_check_string(argv) == -1)
+	{
+		printf("tiro -1 en ft_check_string\n");
+		return(NULL);
+	}
+	if (ft_check_limits(argv) == -1)
+	{
+		printf("tiro -1 en ft_check_limits\n");
+		return(NULL);
+	}
+	if (ft_check_duplicate(argv) == -1)
+	{
+		printf("tiro -1 en ft_check_duplicate\n");
+		return(NULL);
+	}
 	
-// 	i = 0;
-// 	// printf("entro en check_error\n");
-// 	while (str[i] != '\0')
-// 	{
-// 		// printf("el caracter str[i] es :%c\n", str[i]);
-// 		if (str[i] == '-' && str[i + 1] == '-' || (ft_isalpha(str[i])) == 1)
-// 		{
-// 			printf("entro en el if --");
-// 			return NULL;
-// 		}
-// 		i++;
-// 	}
-// 	return (str);
-// }
+	return(argv);
+} 
 
 
 int main(int argc, char **argv)
 {
 	char **result;
-    char delimiter = ' ';
 	int i;
+	int num;
 	int j;
 
 	i = 1;
-	j = 0;
-	if (!argc || !argv[i])
+	num = 0;
+	if (argc < 2)
 	{
 		printf("no hay argumentos");
 		return 0; 
 	}
-	while(check_error(argv[i]))
+	while(1 < argc )
 	{
-		// printf("el argumento es argv [%i]%s\n",i, argv[i]);
-		result = ft_split(argv[i], delimiter);
-		while (result[j] != NULL)
+		j = 0;
+		if (check_error(argv) == NULL)
 		{
-			ft_atoi(result[j]);
-			// printf("\n%i", ft_atoi(result[j]));
+			return 0;
+		}
+		
+		printf("el argumento es argv [%i] es  -> %s\n",i, argv[i]);
+		result = ft_split(argv[i], ' ');
+		while (result[j])
+		{
+			num = ft_atoi(result[j]);
+			printf("atoi es ->>>>%i\n", num);
 			j++;
 		}
 		i++;
+		argc--;
 	}
-		// free(result);
-
-		
-    // int j = 0;
-    // char *input_str = "  12   -23 345 ";
-    // char **result = ft_split(input_str, delimiter);
-	// int num;
-	// char **result;
-    // char delimiter = ' ';
-    // int i = 0;
-
-	// if (!input_str)
-	// 	return 0;
-	// 	if(check_error(input_str) != NULL)
-	// {
-	// 	result = ft_split(input_str, delimiter);
-	// 	while (result[i] != NULL) {
-	// 		ft_atoi(result[i]);
-	// 		printf("\n%i", ft_atoi(result[i]));
-	// 		i++;
-	// 	}
-	// 	free(result);
-	// }
-	// if (!input_str)
-	// 	return 0;
-	// 	if(check_error(input_str) != NULL)
-	// {
-	// 	result = ft_split(input_str, delimiter);
-	// 	while (result[i] != NULL) {
-	// 		ft_atoi(result[i]);
-	// 		printf("\n%i", ft_atoi(result[i]));
-	// 		i++;
-	// 	}
-	// }
 	
 }
