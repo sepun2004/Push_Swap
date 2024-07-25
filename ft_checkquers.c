@@ -91,5 +91,32 @@ int ft_check_limits(char **argv)
 
 int ft_check_duplicate(char **argv)
 {
+	char **num;
+	int i;
+	int j;
+	int k;
 
+	i = 1;
+	while (argv[i])
+	{
+		num = ft_split(argv[i], ' ');
+		j = 0;
+		k = j + 1;
+		printf("num[%d] es -> %s \n",j,num[j]);
+		while (num[j] != NULL)
+		{
+			printf("ingreso en el while (num[k] != NULL)\n");
+			printf("ft_atoi(num[j]) = %d y ft_atoi(num[k]) = %d", ft_atoi(num[j]), ft_atoi(num[k]));
+			if (ft_atoi(num[j]) == ft_atoi(num[k]))
+			{
+				printf("ft_atoi um k %d y dde num j: %d\n", ft_atoi(num[k]), ft_atoi(num[j]));
+				return(-1);
+			}
+			j++;
+			k++;
+		}
+		i++;
+		// argc--;
+	}
+	return (0);
 }
