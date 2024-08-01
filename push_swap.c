@@ -13,9 +13,9 @@
 # include "push_swap.h"
 
 
-char **check_error(char **argv)
+char **check_error(char **argv, int argc)
 {
-
+	// printf("argc es : %d\n",argc );
 	printf("ingreso a check_error\n");
 	if (ft_check_chars(argv) == -1)
 	{
@@ -32,12 +32,15 @@ char **check_error(char **argv)
 		printf("tiro -1 en ft_check_limits\n");
 		return(NULL);
 	}
-	if (ft_check_duplicate(argv) == -1)
+	if (argc > 2)
 	{
-		printf("tiro -1 en ft_check_duplicate\n");
-		return(NULL);
+		if (ft_check_duplicate(argv) == -1)
+		{
+			printf("tiro -1 en ft_check_duplicate\n");
+			return(NULL);
+		}
 	}
-	
+	printf("salio de Check_Error\n");
 	return(argv);
 } 
 
@@ -59,7 +62,7 @@ int main(int argc, char **argv)
 	while(1 < argc )
 	{
 		j = 0;
-		if (check_error(argv) == NULL)
+		if (check_error(argv, argc) == NULL)
 		{
 			return 0;
 		}

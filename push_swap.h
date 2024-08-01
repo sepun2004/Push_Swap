@@ -19,6 +19,6 @@ int	ft_check_string(char **argv);
 int ft_check_chars(char **argv);
 int ft_check_limits(char **argv);
 int ft_check_duplicate(char **argv);
-char **check_error(char **argv);
+char **check_error(char **argv, int argc);
 int main(int argc, char **argv);
 #endif
