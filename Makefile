@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -13,6 +13,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@make bonus -C libft
 	@make -C libft
 	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
 

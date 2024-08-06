@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepun <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:51:59 by sepun             #+#    #+#             */
-/*   Updated: 2023/11/03 15:25:18 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/05 14:54:18 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlist;
 	t_list	*ptr;
-	void	*cont;
+	int	cont;
 
 	newlist = NULL;
 	ptr = NULL;
 	if (!lst || !f || !del)
 		return (NULL);
+	cont = 0;
 	while (lst != NULL)
 	{
-		cont = f(lst->content);
 		ptr = ft_lstnew(cont);
 		if (!ptr)
 		{
-			del(cont);
+			// del(cont);
 			ft_lstclear(&newlist, del);
 			return (NULL);
 		}

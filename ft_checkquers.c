@@ -1,5 +1,9 @@
 #include "push_swap.h"
 
+
+
+
+
 int ft_check_chars(char **argv)
 {
     int i;
@@ -56,13 +60,28 @@ int	ft_check_string(char **argv)
 	}
 	return (0);
 }
+
+void	ft_free_array(char **strs)
+{
+	int i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
+
+
 int ft_check_limits(char **argv)	
 {
 	char **result;
 	int i;
 	int j;
-	int num;
-
+	// long num;
+	
 	i = 1;
 	j = 0;
 	while(argv[i])
@@ -71,23 +90,28 @@ int ft_check_limits(char **argv)
 		if (!result)
 			{
 				// printf("result = -1\n");
+				free(result);
 				return (-1);
 			}
 		while (result[j] != NULL)
 		{
-			num = ft_atoi(result[j]);
-			// printf("num es : %d\n", num);
-			if (num == -1)
+			// num = ft_atoll(result[j]);
+			// printf("num es : %ld\n", num);
+			if (ft_atoll(result[j]) != ft_atoi(result[j]))
 			{
-				// printf("num = -1\n");
+				printf("no es igual\n");
 				return (-1);
-			}
+			} 
 			j++;
 		}
+		ft_free_array(result);
 		i++;
 	}
 	return (0);
 }
+
+
+
 
 // int ft_check_duplicate(char **argv)
 // {
@@ -123,8 +147,30 @@ int ft_check_limits(char **argv)
 // 	}
 // 	return (0);
 // }
-
 // int ft_check_duplicate(char **argv)
+// {
+// 	char **num;
+// 	int i;
+// 	int j;
+// 	int k;
+
+// 	i = 1;
+// 	while (argv[i])
+// 	{
+// 		num = ft_split(argv[i], ' ');
+// 		j = 0;
+// 		k = j + 1;
+// 		printf("num[%d] es -> %s \n",j,num[j]);
+// 		while (num[j] != NULL)
+// 		{
+// 			j = 0;
+// 			printf("J es -> %d\n", j);
+// 			printf("num es -> %s\n", num[j + 1]);
+// 			printf("ingreso en el while (num[k] != NULL)\n");
+// 			// printf("ft_atoi(num[j]) = %d y ft_atoi(num[k]) = %d", ft_atoi(num[j]), ft_atoi(num[k]));
+// 			if (ft_atoi(num[j]) == ft_atoi(num[k]))
+// 			{
+// 			check_duplicate(char **argv)
 // {
 // 	char **num;
 // 	int i;

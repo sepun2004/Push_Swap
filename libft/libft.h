@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:32:59 by sepun             #+#    #+#             */
-/*   Updated: 2024/07/09 20:30:24 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/05 15:48:44 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,15 @@
 	int j;
 };*/
 
+// typedef struct s_list
+// {
+// 	void			*content;
+// 	struct s_list	*next;
+// }				t_list;
+
 typedef struct s_list
 {
-	void			*content;
+	int			content;
 	struct s_list	*next;
 }				t_list;
 
@@ -58,6 +64,8 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 int				ft_atoi(const char *str);
+//ft_atoll
+long			ft_atoll(const char *str);
 void			*ft_calloc(size_t count, size_t size);
 char			*ft_strdup(const char *src);
 char			*ft_substr(const char *s, unsigned int start, size_t len);
@@ -74,7 +82,7 @@ void			ft_putnbr_fd(int n, int fd);
 //
 //BONUS
 //
-t_list			*ft_lstnew(void *content);
+t_list			*ft_lstnew(int content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
