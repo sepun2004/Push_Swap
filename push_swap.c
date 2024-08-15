@@ -72,7 +72,14 @@ int main(int argc, char **argv)
 		while (result[j])
 		{
 			num = ft_atoi(result[j]); 
-			printf("atoi es ->>>>%i\n", num);
+			// printf("atoi es ->>>>%i\n", num);
+			// ft_check_duplicate(head_list, num);
+			if (ft_check_duplicate(head_list, num) == -1)
+			{
+				printf("ft_check_duplicate tiro -1\n");
+				return 0;
+			}
+			
 			tmp_list = ft_lstnew(num);
 			ft_lstadd_back(&head_list, tmp_list);
 			

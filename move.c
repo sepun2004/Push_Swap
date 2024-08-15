@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 13:00:24 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/06 18:16:36 by sepun            ###   ########.fr       */
+/*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
+/*   Updated: 2024/08/15 18:11:55 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/libft.h"
-# include <limits.h>
+void	swap(t_stack *top)
+{
+	int	tmp;
 
-
-int	ft_check_string(char **argv);
-int ft_check_chars(char **argv);
-int ft_check_limits(char **argv);
-int ft_check_duplicate(t_list *head_list, int num);
-char **check_error(char **argv/*, int argc*/);
-int main(int argc, char **argv);
-#endif
+	if (top == NULL || top->next == NULL)
+		return ;
+	tmp = top->content;
+	top->content = top->next->content;
+	top->next->content = tmp;
+}

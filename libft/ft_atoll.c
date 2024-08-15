@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:09:56 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/05 16:35:55 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/14 17:36:36 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ long	ft_atoll(const char *str)
 	unsigned long	num;
 	long			i;
 	long				np;
+	long 			final;
 
 	np = 1;
 	i = 0;
@@ -32,5 +33,11 @@ long	ft_atoll(const char *str)
 		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	return ((long)(np * num));
+	final = (long)(np * num);
+	if (final > -2147483647 || final < 2147483647)
+	{
+		return (21474836400); 
+	}
+	
+	return (final);
 }

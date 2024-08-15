@@ -1,7 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_checkquers.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/14 20:49:47 by sepun             #+#    #+#             */
+/*   Updated: 2024/08/14 20:49:51 by sepun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-
-
 
 
 int ft_check_chars(char **argv)
@@ -82,20 +91,21 @@ int ft_check_limits(char **argv)
 	int j;
 	// long num;
 	
-	i = 1;
-	j = 0;
+	i = 1; 
 	while(argv[i])
 	{
+		j = 0;
 		result = ft_split(argv[i], ' ');
 		if (!result)
-			{
-				// printf("result = -1\n");
-				free(result);
-				return (-1);
-			}
+		{
+			// printf("result = -1\n");
+			free(result);
+			return (-1);
+		}
 		while (result[j] != NULL)
 		{
-			// num = ft_atoll(result[j]);
+			printf("ft _atoll es: %ld\n",ft_atoll(result[j]));
+			printf("ft_atoi es: %d\n",ft_atoi(result[j]));
 			// printf("num es : %ld\n", num);
 			if (ft_atoll(result[j]) != ft_atoi(result[j]))
 			{
@@ -112,6 +122,24 @@ int ft_check_limits(char **argv)
 
 
 
+
+int ft_check_duplicate(t_list *head_list, int num)
+{
+	t_list *current;
+
+	current = head_list;
+	while (current)
+	{
+		if (current-> content == num)
+		{
+			printf(" tiro -1\n");
+			return -1;
+		}
+		current = current->next;
+	}
+	return (0);
+	
+}
 
 // int ft_check_duplicate(char **argv)
 // {
@@ -147,6 +175,8 @@ int ft_check_limits(char **argv)
 // 	}
 // 	return (0);
 // }
+
+
 // int ft_check_duplicate(char **argv)
 // {
 // 	char **num;
@@ -195,7 +225,46 @@ int ft_check_limits(char **argv)
 // 		while (num[k])
 // 		{
 // 			j = 1 + k;
-// 			printf("ingreso\n");
+// 			printf("ingreso\n");// int ft_check_duplicate(char **argv) {
+//     char **num;
+//     int i, j, k;
+//     int atoi1, atoi2;
+
+//     i = 1; // Comenzamos desde el segundo argumento (i=1) porque argv[0] contiene el nombre del programa
+//     printf("ingreso en ft_check_duplicate\n");
+//     while (argv[i]) { // Iteramos sobre cada argumento individual
+//         printf("ingreso al bucle argv[i]\n");
+//         num = ft_split(argv[i], ' '); // Dividimos el argumento actual en palabras
+//         if (!num) {
+//             printf("Error en split\n");
+//             return(-1);
+//         }
+
+//         k = 0;
+//         while (num[k]) { // Iteramos sobre cada palabra en el argumento actual
+//             printf("ingreso al bucle num[k]\n");
+//             printf("num[k] es : %s\n", num[k]);
+//             j = k + 1;
+//             while (num[j]) { // Comparamos cada palabra con las siguientes
+//                 printf("ingreso al bucle num[j]\n");
+
+//                 atoi1 = ft_atoi(num[k]);
+//                 printf("***%d****\n", atoi1);
+//                 atoi2 = ft_atoi(num[j]);
+//                 printf("***%d****\n", atoi2);
+//                 if (atoi1 == atoi2) {
+//                     printf("son iguales\n");
+//                     return (-1); // Retorna -1 si encuentra números iguales
+//                 }
+//                 j++;
+//             }
+//             k++;
+//         }
+//         free(num); // Libera la memoria asignada para num
+//         i++; // Pasamos al siguiente argumento
+//     }
+//     return (0); // Retorna 0 si no hay números iguales después de revisar todos los argumentos
+// }
 // 			// printf("num 2 es -> %s\n", num);
 // 			while (num[j] != NULL)
 // 			{
@@ -225,46 +294,46 @@ int ft_check_limits(char **argv)
 
 
 
-int ft_check_duplicate(char **argv) {
-    char **num;
-    int i, j, k;
-    int atoi1, atoi2;
+// int ft_check_duplicate(char **argv) {
+//     char **num;
+//     int i, j, k;
+//     int atoi1, atoi2;
 
-    i = 1; // Comenzamos desde el segundo argumento (i=1) porque argv[0] contiene el nombre del programa
-    printf("ingreso en ft_check_duplicate\n");
-    while (argv[i]) { // Iteramos sobre cada argumento individual
-        printf("ingreso al bucle argv[i]\n");
-        num = ft_split(argv[i], ' '); // Dividimos el argumento actual en palabras
-        if (!num) {
-            printf("Error en split\n");
-            return(-1);
-        }
+//     i = 1; // Comenzamos desde el segundo argumento (i=1) porque argv[0] contiene el nombre del programa
+//     printf("ingreso en ft_check_duplicate\n");
+//     while (argv[i]) { // Iteramos sobre cada argumento individual
+//         printf("ingreso al bucle argv[i]\n");
+//         num = ft_split(argv[i], ' '); // Dividimos el argumento actual en palabras
+//         if (!num) {
+//             printf("Error en split\n");
+//             return(-1);
+//         }
 
-        k = 0;
-        while (num[k]) { // Iteramos sobre cada palabra en el argumento actual
-            printf("ingreso al bucle num[k]\n");
-            printf("num[k] es : %s\n", num[k]);
-            j = k + 1;
-            while (num[j]) { // Comparamos cada palabra con las siguientes
-                printf("ingreso al bucle num[j]\n");
+//         k = 0;
+//         while (num[k]) { // Iteramos sobre cada palabra en el argumento actual
+//             printf("ingreso al bucle num[k]\n");
+//             printf("num[k] es : %s\n", num[k]);
+//             j = k + 1;
+//             while (num[j]) { // Comparamos cada palabra con las siguientes
+//                 printf("ingreso al bucle num[j]\n");
 
-                atoi1 = ft_atoi(num[k]);
-                printf("***%d****\n", atoi1);
-                atoi2 = ft_atoi(num[j]);
-                printf("***%d****\n", atoi2);
-                if (atoi1 == atoi2) {
-                    printf("son iguales\n");
-                    return (-1); // Retorna -1 si encuentra números iguales
-                }
-                j++;
-            }
-            k++;
-        }
-        free(num); // Libera la memoria asignada para num
-        i++; // Pasamos al siguiente argumento
-    }
-    return (0); // Retorna 0 si no hay números iguales después de revisar todos los argumentos
-}
+//                 atoi1 = ft_atoi(num[k]);
+//                 printf("***%d****\n", atoi1);
+//                 atoi2 = ft_atoi(num[j]);
+//                 printf("***%d****\n", atoi2);
+//                 if (atoi1 == atoi2) {
+//                     printf("son iguales\n");
+//                     return (-1); // Retorna -1 si encuentra números iguales
+//                 }
+//                 j++;
+//             }
+//             k++;
+//         }
+//         free(num); // Libera la memoria asignada para num
+//         i++; // Pasamos al siguiente argumento
+//     }
+//     return (0); // Retorna 0 si no hay números iguales después de revisar todos los argumentos
+// }
 
 
 

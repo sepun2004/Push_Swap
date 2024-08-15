@@ -6,13 +6,15 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:32:59 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/05 15:48:44 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/15 18:05:41 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "gnl/get_next_line.h"
+# include "gnl/get_next_line_bonus.h"
 # include <string.h>
 #include <stdint.h>
 # include <stdio.h>
@@ -39,6 +41,12 @@ typedef struct s_list
 	int			content;
 	struct s_list	*next;
 }				t_list;
+
+// typedef struct s_stack
+// {
+// 	t_list			*head;
+// 	int				size;
+// }					t_stack;
 
 int				ft_isalpha(int x);
 int				ft_isdigit(int x);
