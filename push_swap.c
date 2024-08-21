@@ -82,6 +82,8 @@ int main(int argc, char **argv)
 			
 			tmp_list = ft_lstnew(num);
 			ft_lstadd_back(&head_list, tmp_list);
+			printf(("nose que es  ->>>> %d\n"),head_list->content);
+			// reverse(&head_list);
 			
 			j++;
 		}
@@ -90,6 +92,7 @@ int main(int argc, char **argv)
 	}
 	while (head_list)
 	{
+		printf("------------------------------------------------");
 		printf(("tmp_list es  ->>>> %d\n"),head_list->content);
 		head_list = head_list->next; 
 		// printf(("tmp_list es  ->>>> %d\n"),tmp_list->next);
