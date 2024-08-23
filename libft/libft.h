@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:32:59 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/15 18:05:41 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/23 14:14:44 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+//ft_lstseclast
+t_list	*ft_lstseclast(t_list *lst);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/21 21:18:08 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/23 14:13:37 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,7 @@ void	rotate(t_list **top)
 	tail->next = tmp;
 	tmp->next = NULL;
 }
-// void reverse(t_list **top)
-// {
-// 	t_list *tmp;
-// 	t_list *tail;
 
-// 	if (*top == NULL || (*top)->next == NULL)
-// 		return ;
-// 	tmp = *top;
-// 	tail = ft_lstlast(tmp);
-// 	ft_lstadd_front(&tail, tmp);
-// }
 void	reverse_rotate(t_list **top)
 {
 	t_list	*tail;

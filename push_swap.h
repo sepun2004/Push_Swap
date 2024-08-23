@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:00:24 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/20 15:49:36 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/23 14:59:38 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 
 
+int number_of_arguments(int argc);
 int	ft_check_string(char **argv);
 int ft_check_chars(char **argv);
 int ft_check_limits(char **argv);
@@ -28,5 +29,6 @@ int main(int argc, char **argv);
 void	swap(t_list *top);
 void	push(t_list **src, t_list **dest);
 void	rotate(t_list **top);
-void reverse(t_list **top);
+void reverse_rotate(t_list **top);
+// t_list	*ft_lstseclast(t_list *lst)
 #endif

@@ -13,6 +13,25 @@
 # include "push_swap.h"
 
 
+int number_of_arguments(int argc)
+{
+	if (argc < 2)
+	{
+		printf("no hay argumentos");
+		return 0; 
+	}
+	else if(argc == 3)
+	{
+		printf("%d\n", );
+		printf("tiene 3 argumentos\n");
+	}
+	else if (argc == 4)
+	{
+		printf("tiene 4 argumentos\n");
+
+	}
+	return(argc);
+}
 
 char **check_error(char **argv /*, int argc*/)
 {
@@ -56,11 +75,6 @@ int main(int argc, char **argv)
 
 	i = 1;
 	num = 0;
-	if (argc < 2)
-	{
-		printf("no hay argumentos");
-		return 0; 
-	}
 	while(1 < argc )
 	{
 		j = 0;
@@ -83,7 +97,9 @@ int main(int argc, char **argv)
 			tmp_list = ft_lstnew(num);
 			ft_lstadd_back(&head_list, tmp_list);
 			printf(("nose que es  ->>>> %d\n"),head_list->content);
-			// reverse(&head_list);
+			number_of_arguments(argc, &head_list);
+
+			// reverse_rotate(&head_list);
 			
 			j++;
 		}
