@@ -13,24 +13,31 @@
 # include "push_swap.h"
 
 
-int number_of_arguments(int argc)
+t_list *number_of_arguments(int argc, t_list *top)
 {
-	if (argc < 2)
+	// if(argc == 3)
+	(void)argc;
+	if (ft_lstsize(top) == 2)
 	{
-		printf("no hay argumentos");
-		return 0; 
-	}
-	else if(argc == 3)
-	{
-		printf("%d\n", );
+		swap(&top);
+		// two_argumments(top);
+		
+		// // while (top != NULL)
+		// // {
+		// 	printf("------------------------------------------------");
+		// 	printf(("top es  ->>>> %d\n"),top->content);
+		// 	// top = top->next; 
+		// 	// printf(("tmp_list es  ->>>> %d\n"),tmp_list->next);
+		// // }
+		// // printf("%d\n", top->content);
 		printf("tiene 3 argumentos\n");
 	}
-	else if (argc == 4)
-	{
-		printf("tiene 4 argumentos\n");
+	// else if (argc == 4)
+	// {
+	// 	printf("tiene 4 argumentos\n");
 
-	}
-	return(argc);
+	// }
+	return(top);
 }
 
 char **check_error(char **argv /*, int argc*/)
@@ -58,7 +65,7 @@ char **check_error(char **argv /*, int argc*/)
 	// 	{
 	// 		printf("tiro -1 en ft_check_duplicate\n");
 	// 		return(NULL);
-	// 	}
+	// 	}two_argumments
 	// }
 	return(argv);
 } 
@@ -75,13 +82,18 @@ int main(int argc, char **argv)
 
 	i = 1;
 	num = 0;
+	if (argc < 2)
+	{
+		printf("no hay argumentos");
+		return 0; 
+	}
 	while(1 < argc )
 	{
 		j = 0;
 		if (check_error(argv/*, argc*/) == NULL)
 			return 0;
 		
-		printf("el argumento es argv [%i] es  -> %s\n",i, argv[i]);
+		// printf("el argumento es argv [%i] es  -> %s\n",i, argv[i]);
 		result = ft_split(argv[i], ' ');
 		while (result[j])
 		{
@@ -96,16 +108,24 @@ int main(int argc, char **argv)
 			
 			tmp_list = ft_lstnew(num);
 			ft_lstadd_back(&head_list, tmp_list);
-			printf(("nose que es  ->>>> %d\n"),head_list->content);
-			number_of_arguments(argc, &head_list);
+			printf(("head_list->content --1-- es  ->>>> %d\n"),head_list->content);
+			printf(("head_list->content --2-- es  ->>>> %d\n"),head_list->content);
+			swap(&head_list);
 
 			// reverse_rotate(&head_list);
 			
 			j++;
 		}
+			// number_of_arguments(argc, head_list);
 		i++;
 		argc--;
 	}
+	printf(("pppppppppppppppphead_list->content --1-- es  ->>>> %d\n"),head_list->content);
+			//swap(head_list);
+			// printf(("pppppppppppppphead_list->content --2-- es  ->>>> %d\n"),head_list->next->content);
+
+	// number_of_arguments(argc, head_list);
+		// printf("%d\n", ft_lstsize(head_list));
 	while (head_list)
 	{
 		printf("------------------------------------------------");

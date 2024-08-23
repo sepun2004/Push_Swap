@@ -6,21 +6,23 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/23 14:13:37 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/23 21:57:25 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list *top)
+void	swap(t_list **top)
 {
-	int	tmp;
+	t_list	*tmp;
 
-	if (top == NULL || top->next == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 		return ;
-	tmp = top->content;
-	top->content = top->next->content;
-	top->next->content = tmp;
+	tmp = (*top)->next;
+	(*top)->next = tmp->next;
+	printf("SS\n");
+	tmp->next = *top;
+	*top = tmp;
 }
 
 void	push(t_list **src, t_list **dest)

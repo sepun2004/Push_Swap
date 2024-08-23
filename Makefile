@@ -1,10 +1,11 @@
 GREEN = \033[0;32m
 RED = \033[0;31m
 NC = \033[0m
-
+CURRENT_FILE = 0
+TOTAL_FILES = $(words $(SRC))
 NAME = push_swap
 
-CC = gcc
+CC = gcc -g3
 CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
@@ -12,16 +13,33 @@ RM = rm -f
 SRC = push_swap.c\
 	  ft_checkquers.c\
 	  move.c\
+	  nose.c\
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+# all: $(NAME)
+
+# $(NAME): $(OBJ)
+# 	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
+# 	@echo "$(GREEN)It has been compiled, have a nice day.👍$(NC)";
+
+all: show_progress $(NAME)
 
 $(NAME): $(OBJ)
-	@make bonus -C libft
-	@make -C libft
-	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
+	@make bonus -s -C libft
+	@make -s -C libft
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L libft -lft
 	@echo "$(GREEN)It has been compiled, have a nice day.👍$(NC)";
+
+%.o: %.c
+	$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE) + 1))))
+	@printf "Compiling $<... $(shell echo $$(($(CURRENT_FILE) * 100 / $(TOTAL_FILES))))%%\r"
+	@$(CC) $(CFLAGS) -c $< -o $@ 
+
+show_progress:
+	@if [ -f $(NAME) ]; then \
+		echo "$(GREEN)The compiled code is already updated.$(NC)"; \
+	fi
 
 
 git:
@@ -30,13 +48,13 @@ git:
 	git push
 
 clean: 
-	$(RM) $(OBJ)
-	@make  clean -C libft
+	@$(RM) $(OBJ)
+	@make  clean -s -C libft
 
 fclean: clean
 # rm -f $(NAME)
 	@rm -f $(NAME)
-	@make fclean  -C libft
+	@make fclean -s -C libft
 	@echo "$(RED)Full Cleaning...$(NC)"
 	@echo "$(RED)Full Cleaned!$(NC)"
 

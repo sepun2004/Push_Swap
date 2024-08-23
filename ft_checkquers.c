@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 20:49:47 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/14 20:49:51 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/23 18:47:55 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ int ft_check_limits(char **argv)
 		}
 		while (result[j] != NULL)
 		{
-			printf("ft _atoll es: %ld\n",ft_atoll(result[j]));
-			printf("ft_atoi es: %d\n",ft_atoi(result[j]));
+			// printf("ft _atoll es: %ld\n",ft_atoll(result[j]));
+			// printf("ft_atoi es: %d\n",ft_atoi(result[j]));
 			// printf("num es : %ld\n", num);
 			if (ft_atoll(result[j]) != ft_atoi(result[j]))
 			{

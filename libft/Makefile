@@ -77,7 +77,7 @@ $(NAME): $(OBJ) $(INCLUDE)
 	@touch .bonus
 
 bonus: .bonus
-	@echo "bonus done!!"
+	# @echo "bonus done!!"
 $.o : %.c
 	$(CC) $(CCFLAGS) -c $< -o $@
 

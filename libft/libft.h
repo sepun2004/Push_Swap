@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:32:59 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/23 14:14:44 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/23 21:05:16 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_list
 {
 	int			content;
 	struct s_list	*next;
+
 }				t_list;
 
 // typedef struct s_stack
