@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	lst->content = content;
 	lst->next = NULL;
+    lst->index = 0;
 	return (lst);
 }
 /*int main()
