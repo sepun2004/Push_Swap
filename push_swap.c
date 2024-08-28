@@ -122,6 +122,7 @@ int main(int argc, char **argv)
 	index_num(head_list);
 	movement_the_list(head_list);
 	
+	
 	while (head_list)
 	{
 		printf("------------------------------------------------");
