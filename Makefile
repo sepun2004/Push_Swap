@@ -14,6 +14,7 @@ SRC = push_swap.c\
 	  ft_checkquers.c\
 	  move.c\
 	  nose.c\
+	  movement.c\
 
 OBJ = $(SRC:.c=.o)
 

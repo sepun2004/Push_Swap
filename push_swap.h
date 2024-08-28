@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:00:24 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/28 20:46:49 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/28 21:25:40 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ void movement_the_list(t_list *top);
 
 //ksort
 void ksort_2(t_list *top);
+void ksort_3(t_list *top);
+
 
 #endif
