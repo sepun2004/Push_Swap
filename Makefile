@@ -6,7 +6,7 @@ TOTAL_FILES = $(words $(SRC))
 NAME = push_swap
 
 CC = gcc -g3
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra 
 
 RM = rm -f
 
