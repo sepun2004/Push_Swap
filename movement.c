@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:38:16 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/28 21:25:56 by sepun            ###   ########.fr       */
+/*   Updated: 2024/08/28 22:08:38 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@
 
 void ksort_3(t_list *top)
 {
-    if (top->content > top->next->content)
+    int a;
+    int b;
+    // int c;
+    
+    a = top->content;
+    b = top->next->content;
+    // c = top->next->next->content;
+    if (a > b)
     {
-        printf("el primero es mayor que el segundo\n");
-        swap(&top);
+        ksort_2(top);
     }
-    if (top->content > top->next->next->content)
-    {
-        printf("el primero es mayor al ultimo\n");
-        rotate(&top);
-    }
+    // if (/* condition */)
+    // {
+    //     /* code */
+    // }
     
 }
 
