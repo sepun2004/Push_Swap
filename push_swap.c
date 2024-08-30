@@ -120,8 +120,9 @@ int main(int argc, char **argv)
 	}
 	free(result);
 	index_num(head_list);
+	// rotate(&head_list);
+	// swap(&head_list);
 	movement_the_list(head_list);
-	
 	
 	while (head_list)
 	{
