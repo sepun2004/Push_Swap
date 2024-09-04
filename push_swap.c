@@ -12,16 +12,6 @@
 
 # include "push_swap.h"
 
-void ksort_2(t_list *top)
-{
-	if ((top ->content) > (top->next->content))
-		{
-			printf("top->content es mayor\n");
-			swap(&top);
-		}
-	printf("tiene 2 argumentos\n");
-	// return(top);
-}
 
 
 void  index_num(t_list *top)
@@ -57,7 +47,7 @@ t_list *number_of_arguments(t_list *top)
 	printf("%d\n", i);
 	if (ft_lstsize(top) == 2)
 	{
-		ksort_2(top);
+		sort_2(top);
 	}
 	
 	return(top);
@@ -87,8 +77,9 @@ char **check_error(char **argv /*, int argc*/)
 int main(int argc, char **argv)
 {
 	char **result;
-	t_list *head_list = NULL;
+	t_list *head_list_A = NULL;
 	t_list *tmp_list = NULL;
+	t_list *head_list_B = NULL;
 	int i;
 	int num;
 	int j;
@@ -109,25 +100,23 @@ int main(int argc, char **argv)
 		while (result[j])
 		{
 			num = ft_atoi(result[j]);
-			if (ft_check_duplicate(head_list, num) == -1)
+			if (ft_check_duplicate(head_list_A, num) == -1)
 				return 0;
 			tmp_list = ft_lstnew(num);
-			ft_lstadd_back(&head_list, tmp_list);
+			ft_lstadd_back(&head_list_A, tmp_list);
 			j++;
 		}
 		i++;
 		argc--;
 	}
 	free(result);
-	index_num(head_list);
-	// rotate(&head_list);
-	// swap(&head_list);
-	movement_the_list(head_list);
+	index_num(head_list_A);
+	movement_the_list(head_list_A, head_list_B);
 	
-	while (head_list)
+	while (head_list_A)
 	{
 		printf("------------------------------------------------");
-		printf(("tmp_list es  ->>>> %d ,  y el index es %d\n"),head_list->content, head_list->index);
-		head_list = head_list->next;
+		printf(("tmp_list es  ->>>> %d ,  y el index es %d\n"),head_list_A->content, head_list_A->index);
+		head_list_A = head_list_A->next;
 	}
 }

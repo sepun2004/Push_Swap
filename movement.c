@@ -6,96 +6,144 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:38:16 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/30 16:16:10 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/04 22:12:03 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void sort_2(t_list *top)
+{
+	if ((top ->content) > (top->next->content))
+		{
+			printf("top->content es mayor\n");
+			swap(&top, 'a');
+		}
+	printf("tiene 2 argumentos\n");
+	// return(top);
+}
 
 
-void ksort_3(t_list *top)
+void sort_3(t_list *top)
 { 
+    int firt_number;
+    int second_number;
+    int last_number;
 
-    if (top->index == 0 && top->next->index != 1 && top->next->next->index != 2)
+    firt_number = top->content;
+    second_number = top->next->content;
+    last_number = top->next->next->content;
+
+    if ((firt_number > second_number) && (second_number < last_number) && (firt_number < last_number))
     {
-        top = top->next;
-        printf("top es == %d\n", top->content);
-        swap(&top);
-        printf("top es == %d\n", top->content);
-        printf("caso 1 3 2\n");
-    }
-    
-    if (top->index != 0 && top->next->index != 1 && top->next->next->index == 2)
-    {
-        swap(&top);
-        printf("caso 2 1 3\n");
-    }
-    if (top->index != 0 && top->next->index != 1 && top->next->next->index != 2)
-    {
-        printf("-------------------------------------------\n");
-        // swap(&top);
-        printf("ya hizo swap\n");
-        // rotate(&top);
         printf("top in the posicion [1] es ==== %d\n", top->content);
         printf("top in the posicion [2] es ==== %d\n", top->next->content);
         printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
-        printf("---------segundo movimiento----------\n");
-        reverse_rotate(&top);
+        
+        swap(&top,'a');
+        printf("---------primer movimiento----------\n");
+        printf("top in the posicion [1] es ==== %d\n", top->content);
+        printf("top in the posicion [2] es ==== %d\n", top->next->content);
+        printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
+        printf("caso 2 1 3\n");
+        printf("-------------------------------------------\n");
+    }
+    if ((firt_number < second_number) && (second_number > last_number) && (firt_number  > last_number))
+    {
+        printf("top in the posicion [1] es ==== %d\n", top->content);
+        printf("top in the posicion [2] es ==== %d\n", top->next->content);
+        printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
+        reverse_rotate(&top, 'a');
+        printf("---------primer movimiento----------\n");
         printf("top in the posicion [1] es ==== %d\n", top->content);
         printf("top in the posicion [2] es ==== %d\n", top->next->content);
         printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
         printf("caso 2 3 1\n");
         printf("-------------------------------------------\n");
+    }
+    if ((firt_number > second_number) && (second_number > last_number)
+		&& (firt_number > last_number))
+    {
+		rotate_and_swap(&top, 'a');
+        printf("caso 3 2 1\n");
+        printf("-------------------------------------------\n");
+	}
+    if ((firt_number > second_number) && (second_number < last_number)
+		&& (firt_number > last_number))
+	{
+        printf("top in the posicion [1] es ==== %d\n", top->content);
+        printf("top in the posicion [2] es ==== %d\n", top->next->content);
+        printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
+    	rotate(&top, 'a');
+        printf("---------primer movimiento----------\n");
+        printf("top in the posicion [1] es ==== %d\n", top->content);
+        printf("top in the posicion [2] es ==== %d\n", top->next->content);
+        printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
+	    printf("caso 3 1 2\n");
+        printf("-------------------------------------------\n");
 
     }
-    if (top->index != 0 && top->next->index == 1 && top->next->next->index != 2)
-    {
-        printf("-------------------------------------------\n");
-        // swap(&top);
-        // printf("ya hizo swap\n");
-        printf("top in the posicion [1] es ==== %d\n", top->content);
-        printf("top in the posicion [2] es ==== %d\n", top->next->content);
-        printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
-        printf("---------primer movimiento----------\n");
-        swap(&top);
-        printf("top in the posicion [1] es ==== %d\n", top->content);
-        printf("top in the posicion [2] es ==== %d\n", top->next->content);
-        printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
-        printf("---------segundo movimiento----------\n");
-        reverse_rotate(&top);
-        printf("top in the posicion [1] es ==== %d\n", top->content);
-        printf("top in the posicion [2] es ==== %d\n", top->next->content);
-        printf("top in the posicion [3] es ==== %d\n", top->next->next->content);
-        printf("3 2 1\n");
+    if ((firt_number < second_number) && (second_number > last_number)
+		&& (firt_number < last_number))
+	{
+    	swap_and_rotate(&top, 'a');
+        printf("caso 1 3 2\n");
         printf("-------------------------------------------\n");
     }
-    
-    
-    
-    
-// // printf("1 2 3 _______ Perfect\n");
-printf("1 3 2 _______ swap in 3 and 2\n");
-printf("2 1 3 _______ swap in 2 and 1\n");
-printf("2 3 1 _______ swap in 2 and 1 also rotate un the posicion 1 and 3 \n");
-printf("3 2 1 _______ rotate in 3 and 1\n");
-// printf("3 1 2 _______ rotate in 3 and 2 and swap the posicion 1 and 2\n");
 }
 
+void sort_4(t_list *top, t_list *topB)
+{
+    // int firt_number;
+    // int second_number;
+    // int three_number;
+    // (void)topB;
+    t_list *last_number;
 
+    // firt_number = top->content;
+    // second_number = top->next->content;
+    // three_number = top->next->content;
+    // last_number = top->next->next->content;
+    (*last_number) = smallest_number(top);
+    printf("last_number es = %d y msu index es %d\n", last_number->content, last_number->index);
+    push(&last_number, &topB, 'a');
+}
 
-void movement_the_list(t_list *top)
+void movement_the_list(t_list *top, t_list *head_list_B)
 {
     if (ft_lstsize(top) == 2)
     {
         printf("--------- ft_lstsize es 2 ---------\n");
-        ksort_2(top);
+        sort_2(top);
     }
     else if(ft_lstsize(top) == 3)
     {
         printf("--------- ft_lstsize es 3 ---------\n");
-        ksort_3(top);
+        sort_3(top);
     }
+    else if (ft_lstsize(top) == 4)
+    {
+        printf("--------- ft_lstsize es 3 ---------\n");
+        sort_4(top, head_list_B);
+    }
+    
     
 }
 
+t_list  smallest_number(t_list *top)
+{
+    t_list *min_value;
+    t_list *nodo;
+    
+    min_value = top;
+    nodo = top->next;
+    while (nodo)
+    {
+        if (nodo->index == 2 )
+        {
+            min_value = nodo;   
+        }
+        nodo = nodo->next;
+    }
+    return (*min_value);
+}
