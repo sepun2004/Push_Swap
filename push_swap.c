@@ -14,12 +14,12 @@
 
 
 
-void  index_num(t_list *top)
+void  index_num(t_list **top)
 {
 	t_list *tmp1;
 	t_list *tmp2;
 
-	tmp1 = top;
+	tmp1 = (*top);
 	while (tmp1)
 	{
 		tmp2 = tmp1->next;
@@ -39,19 +39,19 @@ void  index_num(t_list *top)
 
 
 
-t_list *number_of_arguments(t_list *top)
-{
-	int i; 
+// t_list *number_of_arguments(t_list *top)
+// {
+// 	int i; 
 	
-	i = top ->content;
-	printf("%d\n", i);
-	if (ft_lstsize(top) == 2)
-	{
-		sort_2(top);
-	}
+// 	i = top ->content;
+// 	printf("number_of_arguments : %d\n", i);
+// 	if (ft_lstsize(top) == 2)
+// 	{
+// 		sort_2(top);
+// 	}
 	
-	return(top);
-}
+// 	return(top);
+// }
 
 char **check_error(char **argv /*, int argc*/)
 {
@@ -60,11 +60,13 @@ char **check_error(char **argv /*, int argc*/)
 		printf("tiro -1 en ft_check_chars\n");
 		return(NULL);
 	}
+	printf("Sale de check chars\n");
 	if (ft_check_string(argv) == -1)
 	{
 		printf("tiro -1 en ft_check_string\n");
 		return(NULL);
 	}
+	printf("Sale de check string\n");
 	if (ft_check_limits(argv) == -1)
 	{
 		printf("tiro -1 en ft_check_limits\n");
@@ -110,8 +112,9 @@ int main(int argc, char **argv)
 		argc--;
 	}
 	free(result);
-	index_num(head_list_A);
-	movement_the_list(head_list_A, head_list_B);
+	// Prueba = head_list_A;
+	index_num(&head_list_A);
+	movement_the_list(&head_list_A, &head_list_B);
 	
 	while (head_list_A)
 	{

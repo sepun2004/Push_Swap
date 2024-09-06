@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/04 20:08:49 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/06 16:27:13 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ void	push(t_list **src, t_list **dest, char x)
 	*src = (*src)->next;
 	tmp->next = NULL;
 	ft_lstadd_front(dest, tmp);
+    printf("----------ft_lstsize despues del push top es : %d\n", ft_lstsize(*src));
 	if (x == 'a')
 	{
-		printf("pa\n");
+		printf("pb\n");
 	}else
 	{
-		printf("pb\n");
+		printf("pa \n");
 	}
 	
 }
@@ -67,10 +68,10 @@ void	rotate(t_list **top, char x)
 	tmp->next = NULL;
 	if (x == 'a')
 	{
-		printf("rra\n");
+		printf("ra\n");
 	}else
 	{
-		printf("rrb\n");
+		printf("rb\n");
 	}
 	
 }
@@ -89,10 +90,10 @@ void	reverse_rotate(t_list **top, char x)
 	*top = tail;
 	if (x == 'a')
 	{
-		printf("sa\n");
+		printf("rra\n");
 	}else
 	{
-		printf("sb\n");
+		printf("rrb\n");
 	}
 	
 }

@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 20:49:47 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/23 18:47:55 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/06 16:36:41 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ int ft_check_chars(char **argv)
 			// printf("%d\t%d\t%d\n",(argv[i][j]), i ,j );
             if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' && argv[i][j] != '-' && argv[i][j] != '+')
 			{
+				printf("1\n");
 				// printf("primer if\n");
 				return (-1);
 			}
 			if (!ft_isdigit(argv[i][j]) && ((argv[i][j] == '+' || argv[i][j] == '-') && (!ft_isdigit(argv[i][j + 1]))))
 			{
+				printf("2\n");
 				// printf("second if\n");
 				return (-1);
 			}
@@ -119,9 +121,6 @@ int ft_check_limits(char **argv)
 	}
 	return (0);
 }
-
-
-
 
 int ft_check_duplicate(t_list *head_list, int num)
 {
