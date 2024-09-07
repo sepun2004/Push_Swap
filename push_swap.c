@@ -115,7 +115,12 @@ int main(int argc, char **argv)
 	// Prueba = head_list_A;
 	index_num(&head_list_A);
 	movement_the_list(&head_list_A, &head_list_B);
-	
+	print_list(head_list_A);
+}
+
+
+void print_list(t_list *head_list_A)
+{
 	while (head_list_A)
 	{
 		printf("------------------------------------------------");
