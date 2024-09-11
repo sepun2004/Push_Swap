@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/06 20:54:15 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/11 20:47:20 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	push(t_list **src, t_list **dest, char x)
 	tmp->next = NULL;
 	printf("el nodo cone el contenido [%d] y el index '%d', se paso al la lista\n", tmp->content, tmp->index);
 	ft_lstadd_front(dest, tmp);
-    printf("----------ft_lstsize despues del push top es : %d\n", ft_lstsize(*src));
+    // printf("----------ft_lstsize despues del push top es : %d\n", ft_lstsize(*src));
 	if (x == 'a')
 	{
 		printf("pb\n");

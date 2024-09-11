@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:32:59 by sepun             #+#    #+#             */
-/*   Updated: 2024/08/27 21:11:04 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/11 19:25:27 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,14 @@ typedef struct s_list
 	int			content;
 	int			index;
 	struct s_list	*next;
-
+	// struct s_list	*head;
 }				t_list;
+
+typedef struct s_stack
+{
+	t_list			*head;
+	int				size;
+}					t_stack;
 
 // typedef struct s_stack
 // {
@@ -104,5 +110,8 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 //ft_lstseclast
 t_list	*ft_lstseclast(t_list *lst);
+
+// ksort
+int	ft_sqrt(int number);
 
 #endif

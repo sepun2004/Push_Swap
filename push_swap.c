@@ -60,13 +60,13 @@ char **check_error(char **argv /*, int argc*/)
 		printf("tiro -1 en ft_check_chars\n");
 		return(NULL);
 	}
-	printf("Sale de check chars\n");
+	// printf("Sale de check chars\n");
 	if (ft_check_string(argv) == -1)
 	{
 		printf("tiro -1 en ft_check_string\n");
 		return(NULL);
 	}
-	printf("Sale de check string\n");
+	// printf("Sale de check string\n");
 	if (ft_check_limits(argv) == -1)
 	{
 		printf("tiro -1 en ft_check_limits\n");
@@ -112,15 +112,16 @@ int main(int argc, char **argv)
 		argc--;
 	}
 	free(result);
-	// Prueba = head_list_A;
 	index_num(&head_list_A);
 	movement_the_list(&head_list_A, &head_list_B);
-	print_list(head_list_A);
+	// printf("\nsalio de movement the list\n");
+	print_list(head_list_B);
 }
 
 
 void print_list(t_list *head_list_A)
 {
+	printf("ingreso a print_list\n");
 	while (head_list_A)
 	{
 		printf("------------------------------------------------");
@@ -128,3 +129,4 @@ void print_list(t_list *head_list_A)
 		head_list_A = head_list_A->next;
 	}
 }
+

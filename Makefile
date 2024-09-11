@@ -15,14 +15,9 @@ SRC = push_swap.c\
 	  move.c\
 	  order.c\
 	  movement.c\
+	  algoritmo.c\
 
 OBJ = $(SRC:.c=.o)
-
-# all: $(NAME)
-
-# $(NAME): $(OBJ)
-# 	$(CC) $(CFLAGS) $(OBJ) -L libft -lft -o push_swap
-# 	@echo "$(GREEN)It has been compiled, have a nice day.👍$(NC)";
 
 all: show_progress $(NAME)
 
