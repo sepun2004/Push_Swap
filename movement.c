@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:38:16 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/11 20:49:02 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/16 10:26:45 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,12 @@ void sort_4(t_list **top, t_list **topB)
     }
     push(top, topB, 'a');
     // print_list((*topB));
-    // printf("ft_lstsize top es : %d\n", ft_lstsize(*top));
-    // printf("ft_lstsize topB es : %d\n", ft_lstsize(*topB));
+    printf("ft_lstsize top es : %d\n", ft_lstsize(*top));
+    printf("ft_lstsize topB es : %d\n", ft_lstsize(*topB));
     sort_3(top);
     push(topB, top, 'b');
+    printf("ft_lstsize top es : %d\n", ft_lstsize(*top));
+    printf("ft_lstsize topB es : %d\n", ft_lstsize(*topB));
 }
 
 void sort_5(t_list **top, t_list **topB)
@@ -124,9 +126,10 @@ void movement_the_list(t_list **head_list_A, t_list **head_list_B)
     {
         printf("--------- ft_lstsize es 6 o mas ---------\n");
         k_sort1(head_list_A, head_list_B, ft_lstsize(*head_list_A));
-        printf("Salio de K_sort 1 ");
+        printf("Salio de K_sort 1 \n");
         k_sort2(head_list_A, head_list_B, ft_lstsize(*head_list_A));       
-        printf("Salio de K_sort 2");
+        printf("Salio de K_sort 2\n");
+    print_list(*head_list_A);
     }
     
     

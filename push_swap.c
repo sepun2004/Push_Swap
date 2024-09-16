@@ -76,47 +76,47 @@ char **check_error(char **argv /*, int argc*/)
 } 
 
 
-int main(int argc, char **argv)
-{
-	char **result;
-	t_list *head_list_A = NULL;
-	t_list *tmp_list = NULL;
-	t_list *head_list_B = NULL;
-	int i;
-	int num;
-	int j;
+// int main(int argc, char **argv)
+// {
+// 	char **result;
+// 	t_list *head_list_A = NULL;
+// 	t_list *tmp_list = NULL;
+// 	t_list *head_list_B = NULL;
+// 	int i;
+// 	int num;
+// 	int j;
 
-	i = 1;
-	num = 0;
-	if (argc < 2)
-	{
-		printf("no hay argumentos");
-		return 0; 
-	}
-	while(1 < argc )
-	{
-		j = 0;
-		if (check_error(argv) == NULL)
-			return 0;
-		result = ft_split(argv[i], ' ');
-		while (result[j])
-		{
-			num = ft_atoi(result[j]);
-			if (ft_check_duplicate(head_list_A, num) == -1)
-				return 0;
-			tmp_list = ft_lstnew(num);
-			ft_lstadd_back(&head_list_A, tmp_list);
-			j++;
-		}
-		i++;
-		argc--;
-	}
-	free(result);
-	index_num(&head_list_A);
-	movement_the_list(&head_list_A, &head_list_B);
-	// printf("\nsalio de movement the list\n");
-	print_list(head_list_B);
-}
+// 	i = 1;
+// 	num = 0;
+// 	if (argc < 2)
+// 	{
+// 		printf("no hay argumentos");
+// 		return 0; 
+// 	}
+// 	while(1 < argc )
+// 	{
+// 		j = 0;
+// 		if (check_error(argv) == NULL)
+// 			return 0;
+// 		result = ft_split(argv[i], ' ');
+// 		while (result[j])
+// 		{
+// 			num = ft_atoi(result[j]);
+// 			if (ft_check_duplicate(head_list_A, num) == -1)
+// 				return 0;
+// 			tmp_list = ft_lstnew(num);
+// 			ft_lstadd_back(&head_list_A, tmp_list);
+// 			j++;
+// 		}
+// 		i++;
+// 		argc--;
+// 	}
+// 	free(result);
+// 	index_num(&head_list_A);
+// 	movement_the_list(&head_list_A, &head_list_B);
+// 	// printf("\nsalio de movement the list\n");
+// 	print_list(head_list_B);
+// }
 
 
 void print_list(t_list *head_list_A)
@@ -130,3 +130,41 @@ void print_list(t_list *head_list_A)
 	}
 }
 
+
+int main(int argc, char **argv)
+{
+	char **result;
+	t_list *head_list_A = NULL;
+	t_list *tmp_list = NULL;
+	t_list *head_list_B = NULL;
+	int i;
+	int num;
+	int j;
+
+	i = 1;
+	num = 0;
+	while(argc > 1)
+	{
+		j = 0;
+		result = ft_split(argv[i], ' ');
+		while (result[j] != NULL)
+		{
+			num = ft_atoi(result[j]);
+			if (ft_check_duplicate(head_list_A, num) == -1)
+				return 0;
+			tmp_list = ft_lstnew(num);
+			ft_lstadd_back(&head_list_A, tmp_list);
+			j++;
+		}
+		i++;
+		argc--;
+	}
+
+	free(result);
+
+	index_num(&head_list_A);
+	
+	movement_the_list(&head_list_A, &head_list_B);
+
+	print_list(head_list_B);
+}

@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/11 20:47:20 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/12 17:52:30 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	push(t_list **src, t_list **dest, char x)
 
 void	rotate(t_list **top, char x)
 {
+	printf("haceeeeeeeee rotateeeeeeeeeeeeeee\n");
 	t_list	*tail;
 	t_list	*tmp;
 

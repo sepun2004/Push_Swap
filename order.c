@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 19:09:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/11 21:21:37 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/13 23:06:05 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,11 @@ void reverse_rotate_a_b(t_list **stacks_a, t_list **stacks_b)
 {
     reverse_rotate(stacks_a, 'a');
 	reverse_rotate(stacks_b, 'b');
+}
+
+void	rotate_both(t_list **stack_a, t_list **stack_b)
+{
+	rotate(stack_a, 'a'/*FALSE*/);
+	rotate(stack_b, 'b'/*FALSE*/);
+	// write(1, "rr\n", 3);
 }

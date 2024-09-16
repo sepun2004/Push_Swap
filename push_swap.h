@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:00:24 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/11 20:39:07 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/13 23:06:31 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void sort_4(t_list **top, t_list **topB);
 void	swap_and_rotate(t_list **top, char x);
 void	rotate_and_swap(t_list **top, char x);
 void reverse_rotate_a_b(t_list **stacks_a, t_list **stacks_b);
+void	rotate_both(t_list **stack_a, t_list **stack_b);
+
+
 //movement
 t_list  *smallest_number (t_list **top);
 // t_list  *smallest_number_2 (t_list **top);
