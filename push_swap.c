@@ -37,22 +37,6 @@ void  index_num(t_list **top)
 }
 
 
-
-
-// t_list *number_of_arguments(t_list *top)
-// {
-// 	int i; 
-	
-// 	i = top ->content;
-// 	printf("number_of_arguments : %d\n", i);
-// 	if (ft_lstsize(top) == 2)
-// 	{
-// 		sort_2(top);
-// 	}
-	
-// 	return(top);
-// }
-
 char **check_error(char **argv /*, int argc*/)
 {
 	if (ft_check_chars(argv) == -1)
@@ -74,50 +58,6 @@ char **check_error(char **argv /*, int argc*/)
 	}
 	return(argv);
 } 
-
-
-// int main(int argc, char **argv)
-// {
-// 	char **result;
-// 	t_list *head_list_A = NULL;
-// 	t_list *tmp_list = NULL;
-// 	t_list *head_list_B = NULL;
-// 	int i;
-// 	int num;
-// 	int j;
-
-// 	i = 1;
-// 	num = 0;
-// 	if (argc < 2)
-// 	{
-// 		printf("no hay argumentos");
-// 		return 0; 
-// 	}
-// 	while(1 < argc )
-// 	{
-// 		j = 0;
-// 		if (check_error(argv) == NULL)
-// 			return 0;
-// 		result = ft_split(argv[i], ' ');
-// 		while (result[j])
-// 		{
-// 			num = ft_atoi(result[j]);
-// 			if (ft_check_duplicate(head_list_A, num) == -1)
-// 				return 0;
-// 			tmp_list = ft_lstnew(num);
-// 			ft_lstadd_back(&head_list_A, tmp_list);
-// 			j++;
-// 		}
-// 		i++;
-// 		argc--;
-// 	}
-// 	free(result);
-// 	index_num(&head_list_A);
-// 	movement_the_list(&head_list_A, &head_list_B);
-// 	// printf("\nsalio de movement the list\n");
-// 	print_list(head_list_B);
-// }
-
 
 void print_list(t_list *head_list_A)
 {
@@ -143,9 +83,16 @@ int main(int argc, char **argv)
 
 	i = 1;
 	num = 0;
+	if (argc < 2)
+	{
+		printf("no hay argumentos");
+		return 0; 
+	}
 	while(argc > 1)
 	{
 		j = 0;
+		if (check_error(argv) == NULL)
+			return 0;
 		result = ft_split(argv[i], ' ');
 		while (result[j] != NULL)
 		{
@@ -159,12 +106,10 @@ int main(int argc, char **argv)
 		i++;
 		argc--;
 	}
-
 	free(result);
-
 	index_num(&head_list_A);
-	
 	movement_the_list(&head_list_A, &head_list_B);
-
-	print_list(head_list_B);
+	print_list(head_list_A);
+	printf("ft_lstsize de A es : %d\n", ft_lstsize(head_list_A));
+	printf("ft_lstsize de B es : %d\n", ft_lstsize(head_list_B));
 }

@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:38:16 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/16 10:26:45 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/17 12:43:35 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,9 @@ void movement_the_list(t_list **head_list_A, t_list **head_list_B)
         printf("--------- ft_lstsize es 6 o mas ---------\n");
         k_sort1(head_list_A, head_list_B, ft_lstsize(*head_list_A));
         printf("Salio de K_sort 1 \n");
-        k_sort2(head_list_A, head_list_B, ft_lstsize(*head_list_A));       
+        k_sort2(head_list_A, head_list_B, ft_lstsize(*head_list_B));       
         printf("Salio de K_sort 2\n");
-    print_list(*head_list_A);
+    // print_list(*head_list_A);
     }
     
     
