@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/17 12:16:34 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/17 16:04:06 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,20 @@ void	push(t_list **src, t_list **dest, char x)
 	t_list	*tmp;
 
 	if (*src == NULL)
-	{
-		printf("no hay nada que pushear\n");
 		return ;
-	}
 	tmp = *src;
 	*src = (*src)->next;
 	tmp->next = NULL;
-	printf("el nodo cone el contenido [%d] y el index '%d', se paso al la lista\n", tmp->content, tmp->index);
 	ft_lstadd_front(dest, tmp);
-    // printf("----------ft_lstsize despues del push top es : %d\n", ft_lstsize(*src));
 	if (x == 'a')
-	{
-		printf("pb\n");
-	}else
-	{
-		printf("pa \n");
-	}
+		write(1, "pb\n", 3);
+	else
+		write(1, "pa\n", 3);
 	
 }
 
 void	rotate(t_list **top, char x)
 {
-	printf("haceeeeeeeee rotateeeeeeeeeeeeeee\n");
 	t_list	*tail;
 	t_list	*tmp;
 
@@ -72,13 +63,11 @@ void	rotate(t_list **top, char x)
 	tail->next = tmp;
 	tmp->next = NULL;
 	if (x == 'a')
-	{
-		printf("ra\n");
-	}else
-	{
-		printf("rb\n");
-	}
-	
+		write(1, "ra\n", 3);
+	if (x == 'b')
+		write(1, "rb\n", 3);
+	else
+		write(1, "rr\n", 3);	
 }
 
 void	reverse_rotate(t_list **top, char x)
@@ -94,11 +83,9 @@ void	reverse_rotate(t_list **top, char x)
 	tail->next = *top;
 	*top = tail;
 	if (x == 'a')
-	{
-		printf("rra\n");
-	}else
-	{
-		printf("rrb\n");
-	}
-	
+		write(1, "rra\n", 4);
+	if (x == 'b')
+		write(1, "rrb\n", 4);
+	else
+		write(1, "rrr\n", 4);	
 }

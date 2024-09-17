@@ -13,9 +13,9 @@ RM = rm -f
 SRC = push_swap.c\
 	  ft_checkquers.c\
 	  move.c\
-	  order.c\
+	  special_order.c\
 	  movement.c\
-	  algoritmo.c\
+	  algorithm.c\
 
 OBJ = $(SRC:.c=.o)
 

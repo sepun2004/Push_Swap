@@ -40,22 +40,13 @@ void  index_num(t_list **top)
 char **check_error(char **argv /*, int argc*/)
 {
 	if (ft_check_chars(argv) == -1)
-	{
-		printf("tiro -1 en ft_check_chars\n");
 		return(NULL);
-	}
 	// printf("Sale de check chars\n");
 	if (ft_check_string(argv) == -1)
-	{
-		printf("tiro -1 en ft_check_string\n");
 		return(NULL);
-	}
 	// printf("Sale de check string\n");
 	if (ft_check_limits(argv) == -1)
-	{
-		printf("tiro -1 en ft_check_limits\n");
 		return(NULL);
-	}
 	return(argv);
 } 
 
@@ -84,11 +75,8 @@ int main(int argc, char **argv)
 	i = 1;
 	num = 0;
 	if (argc < 2)
-	{
-		printf("no hay argumentos");
-		return 0; 
-	}
-	while(argc > 1)
+		return 0;
+	while(argc)
 	{
 		j = 0;
 		if (check_error(argv) == NULL)
@@ -109,7 +97,7 @@ int main(int argc, char **argv)
 	free(result);
 	index_num(&head_list_A);
 	movement_the_list(&head_list_A, &head_list_B);
-	print_list(head_list_A);
-	printf("ft_lstsize de A es : %d\n", ft_lstsize(head_list_A));
-	printf("ft_lstsize de B es : %d\n", ft_lstsize(head_list_B));
+	// print_list(head_list_A);
 }
+
+
