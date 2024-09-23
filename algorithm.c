@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:35:27 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/17 15:53:06 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/23 11:56:16 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@ void	k_sort1(t_list **stack_a, t_list **stack_b, int length)
 	int	range;
 
 	i = 0;
-	range = ft_sqrt(length) * 14 / 10;
+	range = ft_sqrt(length) * 7/5;
 	while ((*stack_a))
 	{
 		if ((*stack_a)->index <= i)
 		{
 			push(stack_a, stack_b, 'a');
+			if (ft_lstsize(*stack_b) > 1)
+				rotate(stack_b, 'b');
 			i++;
 		}
 		else if ((*stack_a)->index <= i + range)
 		{
 			push(stack_a, stack_b, 'a');
 			i++;
-			if (((*stack_a)->index > i + range))
-				reverse_rotate_a_b(stack_a, stack_b);
-			else
-				rotate(stack_b, 'b');
+			// if (((*stack_a)->index > i + range))
+			// 	reverse_rotate_a_b(stack_a, stack_b);
+			// else
+			// 	rotate(stack_b, 'b');
 		}
 		else
 			rotate(stack_a, 'a');

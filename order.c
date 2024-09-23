@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 19:09:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/13 23:06:05 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/23 12:34:25 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	swap_and_rotate(t_list **top, char x)
 {
+    //printf("swap and rotate\n");
 
     // printf("top in the posicion [1] es ==== %d\n", (*top)->content);
     // printf("top in the posicion [2] es ==== %d\n", (*top)->next->content);
@@ -31,6 +32,7 @@ void	swap_and_rotate(t_list **top, char x)
 }
 void	rotate_and_swap(t_list **top, char x)
 {
+   // printf("rotate and swap \n");
     // printf("top in the posicion [1] es ==== %d\n", (*top)->content);
     // printf("top in the posicion [2] es ==== %d\n", (*top)->next->content);
     // printf("top in the posicion [3] es ==== %d\n", (*top)->next->next->content);

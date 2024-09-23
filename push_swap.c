@@ -13,6 +13,32 @@
 # include "push_swap.h"
 
 
+void	show_stacks(t_list *a, t_list *b)
+{
+	t_list	*node_a;
+	t_list	*node_b;
+	node_a = a;
+	node_b = b;
+	printf("╭───────╥───────╮\n│   a\t║   b\t│\n╞═══════╬═══════╡\n");
+	while (node_a || node_b)
+	{
+		if (node_a)
+		{
+			printf("│ %i\t║", node_a->index);
+			node_a = node_a->next;
+		}
+		else
+			printf("│\t║");
+		if (node_b)
+		{
+			printf(" %i\t│\n", node_b->index);
+			node_b = node_b->next;
+		}
+		else
+			printf("\t│\n");
+	}
+	printf("╰───────╨───────╯\n");
+}
 
 void  index_num(t_list **top)
 {
@@ -96,7 +122,9 @@ int main(int argc, char **argv)
 	}
 	free(result);
 	index_num(&head_list_A);
+	//show_stacks(head_list_A, head_list_B);
 	movement_the_list(&head_list_A, &head_list_B);
+	//show_stacks(head_list_A, head_list_B);
 	// print_list(head_list_A);
 }
 
