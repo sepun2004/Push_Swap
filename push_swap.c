@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 # include "push_swap.h"
-
-
 // void	show_stacks(t_list *a, t_list *b)
 // {
 // 	t_list	*node_a;
@@ -74,18 +72,6 @@ char **check_error(char **argv)
 	return(argv);
 } 
 
-// void print_list(t_list *head_list_A)
-// {
-// 	printf("ingreso a print_list\n");
-// 	while (head_list_A)
-// 	{
-// 		printf("------------------------------------------------");
-// 		printf(("tmp_list es  ->>>> %d ,  y el index es %d\n"),head_list_A->content, head_list_A->index);
-// 		head_list_A = head_list_A->next;
-// 	}
-// }
-
-
 int main(int argc, char **argv)
 {
 	char **result;
@@ -120,10 +106,7 @@ int main(int argc, char **argv)
 	}
 	free(result);
 	index_num(&head_list_A);
-	//show_stacks(head_list_A, head_list_B);
 	movement_the_list(&head_list_A, &head_list_B);
-	//show_stacks(head_list_A, head_list_B);
-	// print_list(head_list_A);
 }
 
 
