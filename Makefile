@@ -10,12 +10,12 @@ CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
 
-SRC = push_swap.c\
-	  ft_checkquers.c\
-	  move.c\
-	  special_order.c\
-	  sort.c\
-	  algorithm.c\
+SRC = ./source/push_swap.c\
+	  ./source/ft_checkquers.c\
+	  ./source/move.c\
+	  ./source/special_order.c\
+	  ./source/sort.c\
+	  ./source/algorithm.c\
 
 OBJ = $(SRC:.c=.o)
 
