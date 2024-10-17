@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:00:24 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/17 16:26:52 by sepun            ###   ########.fr       */
+/*   Updated: 2024/10/14 11:21:39 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	rotate(t_list **top, char x);
 void reverse_rotate(t_list **top, char x);
 t_list *number_of_arguments(t_list *top);
 
-//movement.c
+//Sort.c
 void movement_the_list(t_list **head_list_A, t_list **head_list_B);
 void sort_2(t_list **top);
 void sort_3(t_list **top);

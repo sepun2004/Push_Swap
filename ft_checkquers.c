@@ -12,29 +12,30 @@
 
 #include "push_swap.h"
 
-
-int ft_check_chars(char **argv)
+int	ft_check_chars(char **argv)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 1;
-    while (argv[i])
-    {
+	i = 1;
+	while (argv[i])
+	{
 		j = 0;
-        while (argv[i][j])
-        {
-            if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' && argv[i][j] != '-' && argv[i][j] != '+')
+		while (argv[i][j])
+		{
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' &&
+					argv[i][j] != '-' && argv[i][j] != '+')
 			{
 				return (-1);
 			}
-			if (!ft_isdigit(argv[i][j]) && ((argv[i][j] == '+' || argv[i][j] == '-') && (!ft_isdigit(argv[i][j + 1]))))
+			if (!ft_isdigit(argv[i][j]) && ((argv[i][j] == '+' ||
+			argv[i][j] == '-') && (!ft_isdigit(argv[i][j + 1]))))
 				return (-1);
 			j++;
-        }
-        i++;
-    }
-	return(0);
+		}
+		i++;
+	}
+	return (0);
 }
 
 int	ft_check_string(char **argv)
@@ -50,7 +51,6 @@ int	ft_check_string(char **argv)
 			return (-1);
 		j = 0;
 		count = 0;
-
 		while (argv[i][j])
 		{
 			if (ft_isdigit(argv[i][j]))
@@ -66,7 +66,7 @@ int	ft_check_string(char **argv)
 
 void	ft_free_array(char **strs)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (strs[i])
@@ -77,15 +77,14 @@ void	ft_free_array(char **strs)
 	free(strs);
 }
 
-
-int ft_check_limits(char **argv)	
+int	ft_check_limits(char **argv)
 {
-	char **result;
-	int i;
-	int j;
-	
-	i = 1; 
-	while(argv[i])
+	char	**result;
+	int		i;
+	int		j;
+
+	i = 1;
+	while (argv[i])
 	{
 		j = 0;
 		result = ft_split(argv[i], ' ');
@@ -106,17 +105,16 @@ int ft_check_limits(char **argv)
 	return (0);
 }
 
-int ft_check_duplicate(t_list *head_list, int num)
+int	ft_check_duplicate(t_list *head_list, int num)
 {
-	t_list *current;
+	t_list	*current;
 
 	current = head_list;
 	while (current)
 	{
 		if (current-> content == num)
-			return -1;
+			return (-1);
 		current = current->next;
 	}
-	return (0);	
+	return (0);
 }
-

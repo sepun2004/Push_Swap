@@ -14,7 +14,7 @@ SRC = push_swap.c\
 	  ft_checkquers.c\
 	  move.c\
 	  special_order.c\
-	  movement.c\
+	  sort.c\
 	  algorithm.c\
 
 OBJ = $(SRC:.c=.o)

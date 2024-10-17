@@ -13,32 +13,32 @@
 # include "push_swap.h"
 
 
-void	show_stacks(t_list *a, t_list *b)
-{
-	t_list	*node_a;
-	t_list	*node_b;
-	node_a = a;
-	node_b = b;
-	printf("╭───────╥───────╮\n│   a\t║   b\t│\n╞═══════╬═══════╡\n");
-	while (node_a || node_b)
-	{
-		if (node_a)
-		{
-			printf("│ %i\t║", node_a->index);
-			node_a = node_a->next;
-		}
-		else
-			printf("│\t║");
-		if (node_b)
-		{
-			printf(" %i\t│\n", node_b->index);
-			node_b = node_b->next;
-		}
-		else
-			printf("\t│\n");
-	}
-	printf("╰───────╨───────╯\n");
-}
+// void	show_stacks(t_list *a, t_list *b)
+// {
+// 	t_list	*node_a;
+// 	t_list	*node_b;
+// 	node_a = a;
+// 	node_b = b;
+// 	printf("╭───────╥───────╮\n│   a\t║   b\t│\n╞═══════╬═══════╡\n");
+// 	while (node_a || node_b)
+// 	{
+// 		if (node_a)
+// 		{
+// 			printf("│ %i\t║", node_a->index);
+// 			node_a = node_a->next;
+// 		}
+// 		else
+// 			printf("│\t║");
+// 		if (node_b)
+// 		{
+// 			printf(" %i\t│\n", node_b->index);
+// 			node_b = node_b->next;
+// 		}
+// 		else
+// 			printf("\t│\n");
+// 	}
+// 	printf("╰───────╨───────╯\n");
+// }
 
 void  index_num(t_list **top)
 {
@@ -63,29 +63,27 @@ void  index_num(t_list **top)
 }
 
 
-char **check_error(char **argv /*, int argc*/)
+char **check_error(char **argv)
 {
 	if (ft_check_chars(argv) == -1)
 		return(NULL);
-	// printf("Sale de check chars\n");
 	if (ft_check_string(argv) == -1)
 		return(NULL);
-	// printf("Sale de check string\n");
 	if (ft_check_limits(argv) == -1)
 		return(NULL);
 	return(argv);
 } 
 
-void print_list(t_list *head_list_A)
-{
-	printf("ingreso a print_list\n");
-	while (head_list_A)
-	{
-		printf("------------------------------------------------");
-		printf(("tmp_list es  ->>>> %d ,  y el index es %d\n"),head_list_A->content, head_list_A->index);
-		head_list_A = head_list_A->next;
-	}
-}
+// void print_list(t_list *head_list_A)
+// {
+// 	printf("ingreso a print_list\n");
+// 	while (head_list_A)
+// 	{
+// 		printf("------------------------------------------------");
+// 		printf(("tmp_list es  ->>>> %d ,  y el index es %d\n"),head_list_A->content, head_list_A->index);
+// 		head_list_A = head_list_A->next;
+// 	}
+// }
 
 
 int main(int argc, char **argv)

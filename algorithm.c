@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:35:27 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/23 11:56:16 by sepun            ###   ########.fr       */
+/*   Updated: 2024/09/30 10:24:30 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	k_sort1(t_list **stack_a, t_list **stack_b, int length)
 	int	range;
 
 	i = 0;
-	range = ft_sqrt(length) * 7/5;
+	range = ft_sqrt(length) * 7 / 5;
 	while ((*stack_a))
 	{
 		if ((*stack_a)->index <= i)
@@ -33,10 +33,6 @@ void	k_sort1(t_list **stack_a, t_list **stack_b, int length)
 		{
 			push(stack_a, stack_b, 'a');
 			i++;
-			// if (((*stack_a)->index > i + range))
-			// 	reverse_rotate_a_b(stack_a, stack_b);
-			// else
-			// 	rotate(stack_b, 'b');
 		}
 		else
 			rotate(stack_a, 'a');
@@ -62,12 +58,13 @@ void	k_sort2(t_list **stack_a, t_list **stack_b, int length)
 		else
 		{
 			while ((*stack_b)->index != length - 1)
-				reverse_rotate(stack_b,'b');
+				reverse_rotate(stack_b, 'b');
 			push(stack_b, stack_a, 'b');
 			length--;
 		}
 	}
 }
+
 int	count_r(t_list *stack, int index)
 {
 	int	counter;
