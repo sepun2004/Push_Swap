@@ -6,7 +6,7 @@ TOTAL_FILES = $(words $(SRC))
 NAME = push_swap
 
 CC = gcc -g3
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address,leak
 
 RM = rm -f
 
@@ -16,6 +16,7 @@ SRC = ./source/push_swap.c\
 	  ./source/special_order.c\
 	  ./source/sort.c\
 	  ./source/algorithm.c\
+		./source/ft_free.c\
 
 OBJ = $(SRC:.c=.o)
 

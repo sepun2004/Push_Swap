@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 20:49:47 by sepun             #+#    #+#             */
-/*   Updated: 2024/10/17 19:53:12 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/07 19:37:33 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,37 @@ int	ft_check_chars(char **argv)
 {
 	int	i;
 	int	j;
+	int sign;
 
 	i = 1;
+	sign = 0;
 	while (argv[i])
 	{
 		j = 0;
 		while (argv[i][j])
 		{
+			if (argv[i][j] == ' ' && sign > 0)
+				sign = 0;
+			if (argv[i][j] == '-' || argv[i][j] == '+')
+			{
+				sign++;
+				if (!ft_isdigit(argv[i][j + 1]) || sign > 1)
+				{
+					printf("En el primer if Error\n");
+					return (-1);
+				}
+			}
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' &&
 					argv[i][j] != '-' && argv[i][j] != '+')
 			{
 				return (-1);
 			}
-			if (!ft_isdigit(argv[i][j]) && ((argv[i][j] == '+' ||
+			/*if (!ft_isdigit(argv[i][j]) && ((argv[i][j] == '+' ||
 			argv[i][j] == '-') && (!ft_isdigit(argv[i][j + 1]))))
-				return (-1);
+				return (-1); */
 			j++;
 		}
+		sign = 0;
 		i++;
 	}
 	return (0);
@@ -113,7 +127,10 @@ int	ft_check_duplicate(t_list *head_list, int num)
 	while (current)
 	{
 		if (current-> content == num)
+		{
+			write(1, "Error\n", 6);
 			return (-1);
+		}
 		current = current->next;
 	}
 	return (0);

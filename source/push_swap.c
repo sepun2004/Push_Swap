@@ -11,32 +11,6 @@
 /* ************************************************************************** */
 
 # include "../include/push_swap.h"
-// void	show_stacks(t_list *a, t_list *b)
-// {
-// 	t_list	*node_a;
-// 	t_list	*node_b;
-// 	node_a = a;
-// 	node_b = b;
-// 	printf("╭───────╥───────╮\n│   a\t║   b\t│\n╞═══════╬═══════╡\n");
-// 	while (node_a || node_b)
-// 	{
-// 		if (node_a)
-// 		{
-// 			printf("│ %i\t║", node_a->index);
-// 			node_a = node_a->next;
-// 		}
-// 		else
-// 			printf("│\t║");
-// 		if (node_b)
-// 		{
-// 			printf(" %i\t│\n", node_b->index);
-// 			node_b = node_b->next;
-// 		}
-// 		else
-// 			printf("\t│\n");
-// 	}
-// 	printf("╰───────╨───────╯\n");
-// }
 
 void  index_num(t_list **top)
 {
@@ -64,11 +38,20 @@ void  index_num(t_list **top)
 char **check_error(char **argv)
 {
 	if (ft_check_chars(argv) == -1)
+	{
+		write(1, "Error\n", 6);
 		return(NULL);
+	}
 	if (ft_check_string(argv) == -1)
+	{
+		write(1, "Error\n", 6);
 		return(NULL);
+	}
 	if (ft_check_limits(argv) == -1)
+	{
+		write(1, "Error\n", 6);
 		return(NULL);
+	}
 	return(argv);
 } 
 
@@ -91,7 +74,7 @@ int main(int argc, char **argv)
 		j = 0;
 		if (check_error(argv) == NULL)
 			return 0;
-		result = ft_split(argv[i], ' ');
+		result = ft_split(argv[i], ' '); // "4  7  84" 4 "74 5 1"
 		while (result[j] != NULL)
 		{
 			num = ft_atoi(result[j]);
@@ -99,14 +82,18 @@ int main(int argc, char **argv)
 				return 0;
 			tmp_list = ft_lstnew(num);
 			ft_lstadd_back(&head_list_A, tmp_list);
+			if (tmp_list == NULL)
+				free(tmp_list);
 			j++;
 		}
 		i++;
 		argc--;
+		free_array(result);
 	}
-	free(result);
 	index_num(&head_list_A);
 	movement_the_list(&head_list_A, &head_list_B);
+	free_list(head_list_A, head_list_B);
+	return (0);
 }
 
 
