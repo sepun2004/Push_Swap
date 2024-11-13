@@ -20,10 +20,9 @@ void	swap(t_list **top, char x)
 		return ;
 	tmp = (*top)->next;
 	(*top)->next = tmp->next;
-	// printf("SS\n");
 	tmp->next = *top;
 	*top = tmp;
-	if (x == 'a')
+	if (x == 'a'
 		write(1,"sa\n", 3);
 	else
 		write(1, "sb\n", 3);

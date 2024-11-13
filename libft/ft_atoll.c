@@ -16,8 +16,8 @@ long	ft_atoll(const char *str)
 {
 	unsigned long	num;
 	long			i;
-	long				np;
-	long 			final;
+	long			np;
+	long			final;
 
 	np = 1;
 	i = 0;
@@ -35,10 +35,6 @@ long	ft_atoll(const char *str)
 	}
 	final = (long)(np * num);
 	if (final < -2147483647 || final > 2147483647)
-	{
-		return (21474836400); 
-	}
-	
+		return (21474836400);
 	return (final);
 }
-

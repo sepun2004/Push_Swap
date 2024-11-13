@@ -16,7 +16,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlist;
 	t_list	*ptr;
-	int	cont;
+	int		cont;
 
 	newlist = NULL;
 	ptr = NULL;
@@ -28,7 +28,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ptr = ft_lstnew(cont);
 		if (!ptr)
 		{
-			// del(cont);
 			ft_lstclear(&newlist, del);
 			return (NULL);
 		}
@@ -44,7 +43,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
     int i;
 
     i = 0;
-    temp = (char *) ptr;
+  temp = (char *) ptr;
     while(temp[i] != '\0')
     {
         if(temp[i] >= 'a' && temp[i] <= 'z')

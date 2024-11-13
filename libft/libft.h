@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:32:59 by sepun             #+#    #+#             */
-/*   Updated: 2024/09/17 11:36:23 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/12 16:54:39 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,17 @@
 # include "gnl/get_next_line.h"
 # include "gnl/get_next_line_bonus.h"
 # include <string.h>
-#include <stdint.h>
+# include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-/*typedef struct
-{
-	int i;
-	int word;
-	char **str;
-	int size;
-	int j;
-};*/
-
-// typedef struct s_list
-// {
-// 	void			*content;
-// 	struct s_list	*next;
-// }				t_list;
-
 typedef struct s_list
 {
-	int			content;
-	int			index;
-	struct s_list	*next;
-	// struct s_list	*head;
-}				t_list;
-
-
-
-// typedef struct s_stack
-// {
-// 	t_list			*head;
-// 	int				size;
-// }					t_stack;
+	int					content;
+	int					index;
+	struct s_list		*next;
+}	t_list;
 
 int				ft_isalpha(int x);
 int				ft_isdigit(int x);
@@ -105,9 +81,9 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 //ft_lstseclast
-t_list	*ft_lstseclast(t_list *lst);
+t_list			*ft_lstseclast(t_list *lst);
 
 // ksort
-int	ft_sqrt(int number);
+int				ft_sqrt(int number);
 
 #endif

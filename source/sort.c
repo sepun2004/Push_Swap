@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:38:16 by sepun             #+#    #+#             */
-/*   Updated: 2024/10/17 19:53:44 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/12 13:28:30 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,39 +84,4 @@ void movement_the_list(t_list **head_list_A, t_list **head_list_B)
         k_sort1(head_list_A, head_list_B, ft_lstsize(*head_list_A));
         k_sort2(head_list_A, head_list_B, ft_lstsize(*head_list_B));
     }   
-}
-
-t_list  *smallest_number(t_list **top)
-{
-    t_list *min_value;
-    t_list *nodo;
-    int nose;
-
-    
-    min_value = NULL;
-    nodo = (*top);
-    nose = smallest_index(nodo)->index;
-    while (nodo)
-    {
-        if (nodo->index == nose)
-            min_value = nodo;   
-        nodo = nodo->next;
-    }
-    return(min_value);
-}
-
-t_list *smallest_index(t_list *stack)
-{
-    t_list  *index;
-    t_list  *tmp;
-
-    tmp = stack;
-    index = tmp;
-    while(tmp->next != NULL)
-    {
-        if (index->index > tmp->next->index)
-            index = tmp->next;
-        tmp = tmp->next;
-    }
-    return(index);
 }

@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 20:49:47 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/07 19:37:33 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/13 11:58:33 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_check_chars(char **argv)
 {
 	int	i;
 	int	j;
-	int sign;
+	int	sign;
 
 	i = 1;
 	sign = 0;
@@ -31,19 +31,11 @@ int	ft_check_chars(char **argv)
 			{
 				sign++;
 				if (!ft_isdigit(argv[i][j + 1]) || sign > 1)
-				{
-					printf("En el primer if Error\n");
 					return (-1);
-				}
 			}
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' &&
 					argv[i][j] != '-' && argv[i][j] != '+')
-			{
 				return (-1);
-			}
-			/*if (!ft_isdigit(argv[i][j]) && ((argv[i][j] == '+' ||
-			argv[i][j] == '-') && (!ft_isdigit(argv[i][j + 1]))))
-				return (-1); */
 			j++;
 		}
 		sign = 0;
