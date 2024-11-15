@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:00:24 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/12 13:23:49 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/15 18:16:58 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	index_num(t_list **top);
 
 //Parce || ft_checkquers.c
 int		ft_check_string(char **argv);
-int		ft_check_chars(char **argv);
-int		ft_check_limits(char **argv);
+int		ft_check_chars(char **argv, int i, int j);
+int		ft_check_limits(char **argv, int i, int j);
 int		ft_check_duplicate(t_list *head_list, int num);
 
 //move

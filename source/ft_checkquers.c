@@ -6,19 +6,16 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 20:49:47 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/13 11:58:33 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/15 18:18:45 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_check_chars(char **argv)
+int	ft_check_chars(char **argv, int i, int j)
 {
-	int	i;
-	int	j;
 	int	sign;
 
-	i = 1;
 	sign = 0;
 	while (argv[i])
 	{
@@ -33,8 +30,8 @@ int	ft_check_chars(char **argv)
 				if (!ft_isdigit(argv[i][j + 1]) || sign > 1)
 					return (-1);
 			}
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' &&
-					argv[i][j] != '-' && argv[i][j] != '+')
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' \
+				&& argv[i][j] != '-' && argv[i][j] != '+')
 				return (-1);
 			j++;
 		}
@@ -83,26 +80,27 @@ void	ft_free_array(char **strs)
 	free(strs);
 }
 
-int	ft_check_limits(char **argv)
+int	ft_check_limits(char **argv, int i, int j)
 {
 	char	**result;
-	int		i;
-	int		j;
 
-	i = 1;
+	result = NULL;
 	while (argv[i])
 	{
 		j = 0;
 		result = ft_split(argv[i], ' ');
 		if (!result)
 		{
-			free(result);
+			free_array(result);
 			return (-1);
 		}
 		while (result[j] != NULL)
 		{
 			if (ft_atoll(result[j]) != ft_atoi(result[j]))
+			{
+				ft_free_array(result);
 				return (-1);
+			}
 			j++;
 		}
 		ft_free_array(result);

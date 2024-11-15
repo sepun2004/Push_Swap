@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:45:51 by sepun             #+#    #+#             */
-/*   Updated: 2024/10/17 19:53:23 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/15 17:23:33 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	swap(t_list **top, char x)
 	(*top)->next = tmp->next;
 	tmp->next = *top;
 	*top = tmp;
-	if (x == 'a'
-		write(1,"sa\n", 3);
+	if (x == 'a')
+		write (1, "sa\n", 3);
 	else
-		write(1, "sb\n", 3);
+		write (1, "sb\n", 3);
 }
 
 void	push(t_list **src, t_list **dest, char x)
@@ -42,7 +42,6 @@ void	push(t_list **src, t_list **dest, char x)
 		write(1, "pb\n", 3);
 	else
 		write(1, "pa\n", 3);
-	
 }
 
 void	rotate(t_list **top, char x)
@@ -62,12 +61,11 @@ void	rotate(t_list **top, char x)
 	else if (x == 'b')
 		write(1, "rb\n", 3);
 	else
-		write(1, "rr\n", 3);	
+		write(1, "rr\n", 3);
 }
 
 void	reverse_rotate(t_list **top, char x)
 {
-	//printf("ingreso a reverse_rotate\n");
 	t_list	*tail;
 	t_list	*tmp;
 
@@ -83,5 +81,5 @@ void	reverse_rotate(t_list **top, char x)
 	else if (x == 'b')
 		write(1, "rrb\n", 4);
 	else
-		write(1, "rrr\n", 4);	
+		write(1, "rrr\n", 4);
 }
