@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:00:24 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/15 18:16:58 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/26 18:59:59 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "../libft/libft.h"
 # include <limits.h>
+
+// # define RED "\033[0;31m"
+// # define NC "\033[0m"
 
 //Push_swap.c
 int		main(int argc, char **argv);
@@ -26,6 +29,7 @@ int		ft_check_string(char **argv);
 int		ft_check_chars(char **argv, int i, int j);
 int		ft_check_limits(char **argv, int i, int j);
 int		ft_check_duplicate(t_list *head_list, int num);
+int		is_ordered(t_list *stack_a);
 
 //move
 void	swap(t_list **top, char x);
@@ -35,7 +39,7 @@ void	reverse_rotate(t_list **top, char x);
 t_list	*number_of_arguments(t_list *top);
 
 //Sort.c
-void	movement_the_list(t_list **head_list_A, t_list **head_list_B);
+void	movement_the_list(t_list **head_list_a, t_list **head_list_b);
 void	sort_2(t_list **top);
 void	sort_3(t_list **top);
 void	sort_4(t_list **top, t_list **topB);

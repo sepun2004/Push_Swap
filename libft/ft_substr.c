@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sepun <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:52:10 by sepun             #+#    #+#             */
-/*   Updated: 2023/11/03 19:47:00 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/26 17:56:33 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

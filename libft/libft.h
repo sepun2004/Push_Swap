@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:32:59 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/12 16:54:39 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/26 16:44:05 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct s_list //s_list es el nombre de la estructura
 {
-	int					content;
+	int					content; //content es el nombre del campo
 	int					index;
 	struct s_list		*next;
 }	t_list;

@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 20:49:47 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/15 18:18:45 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:08:37 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_check_string(char **argv)
 	while (argv[i])
 	{
 		if (!ft_strlen(argv[i]))
-			return (-1);
+			return (-2);
 		j = 0;
 		count = 0;
 		while (argv[i][j])

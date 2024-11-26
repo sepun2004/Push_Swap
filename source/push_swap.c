@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-static void	proccess(char **argv, t_list **headA, t_list **tmp_list, char **str)
+static int	proccess(char **argv, t_list **heada, t_list **tmp_list, char **str)
 {
 	int		j;
 	int		i;
@@ -22,23 +22,21 @@ static void	proccess(char **argv, t_list **headA, t_list **tmp_list, char **str)
 	{
 		j = 0;
 		if (check_error(argv) == NULL)
-			return ;
+			return (0);
 		str = ft_split(argv[i], ' ');
 		while (str[j] != NULL)
 		{
-			if (ft_check_duplicate(*headA, ft_atoi(str[j])) == -1)
-				return ;
+			if (ft_check_duplicate(*heada, ft_atoi(str[j])) == -1)
+				return (free_list(*heada, NULL), free_array(str), 0);
 			*tmp_list = ft_lstnew(ft_atoi(str[j]));
 			if (*tmp_list == NULL)
-			{
-				free_list(*tmp_list, *headA);
-				return ;
-			}
-			ft_lstadd_back(headA, *tmp_list);
+				return (free_list(*heada, *tmp_list), 0);
+			ft_lstadd_back(heada, *tmp_list);
 			j++;
 		}
 		free_array(str);
 	}
+	return (1);
 }
 
 void	index_num(t_list **top)
@@ -71,20 +69,35 @@ char	**check_error(char **argv)
 	j = 0;
 	if (ft_check_chars(argv, i, j) == -1)
 	{
-		write(1, "Error\n", 6);
+		write(1, "Error1\n", 7);
 		return (NULL);
 	}
-	if (ft_check_string(argv) == -1)
+	if (ft_check_string(argv) == -1 || ft_check_string(argv) == -2)
 	{
-		write(1, "Error\n", 6);
+		if (ft_check_string(argv) == -1)
+			write(1, "Error2\n", 7);
 		return (NULL);
 	}
 	if (ft_check_limits(argv, i, j) == -1)
 	{
-		write(1, "Error\n", 6);
+		write(1, "Error3\n", 7);
 		return (NULL);
 	}
 	return (argv);
+}
+
+int	is_ordered(t_list *stack_a)
+{
+	t_list	*tmp;
+
+	tmp = stack_a;
+	while (tmp->next != NULL)
+	{
+		if (tmp->content > tmp->next->content)
+			return (-1);
+		tmp = tmp->next;
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -100,7 +113,8 @@ int	main(int argc, char **argv)
 	str = NULL;
 	if (argc < 2)
 		return (0);
-	proccess(argv, &head_list_a, &tmp_list, str);
+	if (!proccess(argv, &head_list_a, &tmp_list, str))
+		return (0);
 	index_num(&head_list_a);
 	movement_the_list(&head_list_a, &head_list_b);
 	free_list(head_list_a, head_list_b);

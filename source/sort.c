@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:38:16 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/15 17:55:02 by sepun            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:07:40 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,22 @@ void	sort_5(t_list **top, t_list **topB)
 	push(topB, top, 'b');
 }
 
-void	movement_the_list(t_list **head_list_A, t_list **head_list_B)
+void	movement_the_list(t_list **head_list_a, t_list **head_list_b)
 {
-	if (ft_lstsize((*head_list_A)) == 2)
-		sort_2(head_list_A);
-	else if (ft_lstsize((*head_list_A)) == 3)
-		sort_3(head_list_A);
-	else if (ft_lstsize((*head_list_A)) == 4)
-		sort_4(head_list_A, head_list_B);
-	else if (ft_lstsize((*head_list_A)) == 5)
-		sort_5(head_list_A, head_list_B);
-	else if (ft_lstsize(*head_list_A) >= 6)
+	if (is_ordered(*head_list_a) == -1)
 	{
-		k_sort1(head_list_A, head_list_B, ft_lstsize(*head_list_A));
-		k_sort2(head_list_A, head_list_B, ft_lstsize(*head_list_B));
+		if (ft_lstsize((*head_list_a)) == 2)
+			sort_2(head_list_a);
+		else if (ft_lstsize((*head_list_a)) == 3)
+			sort_3(head_list_a);
+		else if (ft_lstsize((*head_list_a)) == 4)
+			sort_4(head_list_a, head_list_b);
+		else if (ft_lstsize((*head_list_a)) == 5)
+			sort_5(head_list_a, head_list_b);
+		else if (ft_lstsize(*head_list_a) >= 6)
+		{
+			k_sort1(head_list_a, head_list_b, ft_lstsize(*head_list_a));
+			k_sort2(head_list_a, head_list_b, ft_lstsize(*head_list_b));
+		}
 	}
 }
