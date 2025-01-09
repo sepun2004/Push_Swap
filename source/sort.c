@@ -6,7 +6,7 @@
 /*   By: sepun <sepun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:38:16 by sepun             #+#    #+#             */
-/*   Updated: 2024/11/26 19:07:40 by sepun            ###   ########.fr       */
+/*   Updated: 2025/01/09 19:53:33 by sepun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,16 @@ void	sort_4(t_list **top, t_list **topB)
 void	sort_5(t_list **top, t_list **topB)
 {
 	t_list	*aux;
+	int		shearch;
 
 	aux = smallest_number(top);
-	while ((*top)->content != aux->content)
-		rotate(top, 'a');
+	shearch = count_r(*top, aux->index);
+	if (shearch > (ft_lstsize(*top) / 2))
+		while ((*top)->content != aux->content)
+			reverse_rotate(top, 'a');
+	else
+		while ((*top)->content != aux->content)
+			rotate(top, 'a');
 	push(top, topB, 'a');
 	sort_4(top, topB);
 	push(topB, top, 'b');
